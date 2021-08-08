@@ -143,31 +143,6 @@ void set_pwm(I2C_HandleTypeDef *hi2c, uint8_t address, uint8_t num, uint16_t on,
 	HAL_I2C_Mem_Write(&hi2c1, PCA9685_I2C_ADDRESS, PCA9685_LED0_ON_H + 4 * num, I2C_MEMADD_SIZE_8BIT, &data1, 1, 100);
 	HAL_I2C_Mem_Write(&hi2c1, PCA9685_I2C_ADDRESS, PCA9685_LED0_OFF_L + 4 * num, I2C_MEMADD_SIZE_8BIT, &data2, 1, 100);
 	HAL_I2C_Mem_Write(&hi2c1, PCA9685_I2C_ADDRESS, PCA9685_LED0_OFF_H + 4 * num, I2C_MEMADD_SIZE_8BIT, &data3, 1, 100);
-
-	/*ret = HAL_I2C_Mem_Write(&hi2c1, PCA9685_I2C_ADDRESS, 0x06, I2C_MEMADD_SIZE_8BIT, &data0, 1, 100);
-	HAL_I2C_Mem_Write(&hi2c1, PCA9685_I2C_ADDRESS, 0x07, I2C_MEMADD_SIZE_8BIT, &data1, 1, 100);
-	HAL_I2C_Mem_Write(&hi2c1, PCA9685_I2C_ADDRESS, 0x08, I2C_MEMADD_SIZE_8BIT, &data2, 1, 100);
-	HAL_I2C_Mem_Write(&hi2c1, PCA9685_I2C_ADDRESS, 0x09, I2C_MEMADD_SIZE_8BIT, &data3, 1, 100);
-
-	uint8_t happy[2];
-	happy[0] = PCA9685_LED0_OFF_L + 4 * num;
-	happy[1] = data2;
-	HAL_I2C_Master_Transmit(&hi2c1, PCA9685_I2C_ADDRESS, happy, 2, 100);
-	//printf("return %d\n", (uint8_t)ret);
-
-	uint8_t temp_data0;
-	uint8_t temp_data1;
-	uint8_t temp_data2;
-	uint8_t temp_data3;
-	HAL_I2C_Mem_Read(&hi2c1, PCA9685_I2C_ADDRESS, PCA9685_LED0_ON_L + 4 * num, I2C_MEMADD_SIZE_8BIT, &temp_data0, 1, 100);
-	HAL_I2C_Mem_Read(&hi2c1, PCA9685_I2C_ADDRESS, PCA9685_LED0_ON_H + 4 * num, I2C_MEMADD_SIZE_8BIT, &temp_data1, 1, 100);
-	HAL_I2C_Mem_Read(&hi2c1, PCA9685_I2C_ADDRESS, PCA9685_LED0_OFF_L + 4 * num, I2C_MEMADD_SIZE_8BIT, &temp_data2, 1, 100);
-	HAL_I2C_Mem_Read(&hi2c1, PCA9685_I2C_ADDRESS, PCA9685_LED0_OFF_H + 4 * num, I2C_MEMADD_SIZE_8BIT, &temp_data3, 1, 100);
-	HAL_I2C_Mem_Read(&hi2c1, PCA9685_I2C_ADDRESS, 0x06, I2C_MEMADD_SIZE_8BIT, &temp_data0, 1, 100);
-	HAL_I2C_Mem_Read(&hi2c1, PCA9685_I2C_ADDRESS, 0x07, I2C_MEMADD_SIZE_8BIT, &temp_data1, 1, 100);
-	HAL_I2C_Mem_Read(&hi2c1, PCA9685_I2C_ADDRESS, 0x08, I2C_MEMADD_SIZE_8BIT, &temp_data2, 1, 100);
-	HAL_I2C_Mem_Read(&hi2c1, PCA9685_I2C_ADDRESS, 0x09, I2C_MEMADD_SIZE_8BIT, &temp_data3, 1, 100);
-	printf("read pwm %d, %d\n", (uint32_t)temp_data0+(uint32_t)temp_data1*256, (uint32_t)temp_data2+(uint32_t)temp_data3*256);*/
 }
 
 void SystemClock_Config(void)
